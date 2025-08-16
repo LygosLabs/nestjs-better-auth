@@ -1,6 +1,6 @@
 {
   "name": "@lygos/nestjs-better-auth",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Better Auth for NestJS",
   "author": "Thalles Passos, benny <benny@lygos.com>",
   "license": "MIT",
