@@ -20,16 +20,16 @@ import type { Auth } from "better-auth";
 import { toNodeHandler } from "better-auth/node";
 import { createAuthMiddleware } from "better-auth/plugins";
 import type { Request, Response } from "express";
-import { APIErrorExceptionFilter } from "./api-error-exception-filter.ts";
-import { AuthService } from "./auth-service.ts";
-import { SkipBodyParsingMiddleware } from "./middlewares.ts";
+import { APIErrorExceptionFilter } from "./api-error-exception-filter";
+import { AuthService } from "./auth-service";
+import { SkipBodyParsingMiddleware } from "./middlewares";
 import {
   AFTER_HOOK_KEY,
   AUTH_INSTANCE_KEY,
   AUTH_MODULE_OPTIONS_KEY,
   BEFORE_HOOK_KEY,
   HOOK_KEY,
-} from "./symbols.ts";
+} from "./symbols";
 
 /**
  * Configuration options for the AuthModule

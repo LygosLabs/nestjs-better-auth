@@ -1,6 +1,6 @@
 {
   "name": "@lygos/nestjs-better-auth",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Better Auth for NestJS",
   "author": "Thalles Passos, benny <benny@lygos.com>",
   "license": "MIT",
@@ -30,10 +30,7 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@tsconfig/node22": "^22.0.2",
-    "@types/bun": "latest",
-    "@types/express": "^5.0.0",
-    "bunup": "^0.8.72",
-    "oxc-minify": "^0.82.1"
+    "@types/express": "^5.0.0"
   },
   "peerDependencies": {
     "@nestjs/common": "^11.0.10",
