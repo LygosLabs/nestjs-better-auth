@@ -1,11 +1,21 @@
 {
-	"extends": "@tsconfig/node22",
-	"compilerOptions": {
-		"emitDecoratorMetadata": true,
-		"experimentalDecorators": true,
-		"allowImportingTsExtensions": true,
-		"noEmit": true,
-		"declaration": true,
-		"isolatedDeclarations": true
-	}
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "outDir": "./dist",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "declaration": true,
+    "declarationMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["es2019"],
+    "module": "commonjs",
+    "removeComments": false,
+    "noEmit": true,
+    "sourceMap": true,
+    "allowImportingTsExtensions": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "target": "es2018"
+  },
+  "exclude": ["node_modules", "dist"]
 }

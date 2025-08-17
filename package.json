@@ -1,6 +1,6 @@
 {
   "name": "@lygos/nestjs-better-auth",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Better Auth for NestJS",
   "author": "Thalles Passos, benny <benny@lygos.com>",
   "license": "MIT",
@@ -12,7 +12,7 @@
     "nestjs-better-auth"
   ],
   "scripts": {
-    "build": "bunup src/index.ts --format esm,cjs --dts",
+    "build": "tsc",
     "lint": "biome lint",
     "format": "biome format",
     "check": "biome check"
@@ -32,13 +32,14 @@
     "@tsconfig/node22": "^22.0.2",
     "@types/bun": "latest",
     "@types/express": "^5.0.0",
-    "bunup": "^0.8.37"
+    "bunup": "^0.8.72",
+    "oxc-minify": "^0.82.1"
   },
   "peerDependencies": {
-    "typescript": "^5",
     "@nestjs/common": "^11.0.10",
     "@nestjs/core": "^11.0.10",
     "better-auth": "^1.2.8",
-    "express": "^5.0.0"
+    "express": "^5.0.0",
+    "typescript": "^5"
   }
 }
