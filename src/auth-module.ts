@@ -179,7 +179,7 @@ export class AuthModule implements NestModule, OnModuleInit {
       .getInstance()
       // little hack to ignore any global prefix
       // for now i'll just not support a global prefix
-      .use(`${basePath}/*path`, (req: Request, res: Response) => {
+      .use(basePath, (req: Request, res: Response) => {
         req.url = req.originalUrl;
 
         return handler(req, res);
