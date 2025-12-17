@@ -177,15 +177,9 @@ export class AuthModule implements NestModule, OnModuleInit {
     const handler = toNodeHandler(this.auth);
     const expressApp = this.adapter.httpAdapter.getInstance();
 
-    // Use .all() with wildcard to handle all HTTP methods on all sub-paths
-    // Express 5 requires this approach for proper route matching
-    expressApp.all(`${basePath}/*`, (req: Request, res: Response) => {
-      req.url = req.originalUrl;
-      return handler(req, res);
-    });
-
-    // Also handle the exact basePath (e.g., /api/auth without trailing path)
-    expressApp.all(basePath, (req: Request, res: Response) => {
+    // Express 5 requires named wildcards: use {*splat} to match root and all sub-paths
+    // See: https://expressjs.com/en/guide/migrating-5.html#path-route-matching-syntax
+    expressApp.all(`${basePath}{/*splat}`, (req: Request, res: Response) => {
       req.url = req.originalUrl;
       return handler(req, res);
     });
