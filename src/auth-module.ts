@@ -175,15 +175,21 @@ export class AuthModule implements NestModule, OnModuleInit {
     }
 
     const handler = toNodeHandler(this.auth);
-    this.adapter.httpAdapter
-      .getInstance()
-      // little hack to ignore any global prefix
-      // for now i'll just not support a global prefix
-      .use(basePath, (req: Request, res: Response) => {
-        req.url = req.originalUrl;
+    const expressApp = this.adapter.httpAdapter.getInstance();
 
-        return handler(req, res);
-      });
+    // Use .all() with wildcard to handle all HTTP methods on all sub-paths
+    // Express 5 requires this approach for proper route matching
+    expressApp.all(`${basePath}/*`, (req: Request, res: Response) => {
+      req.url = req.originalUrl;
+      return handler(req, res);
+    });
+
+    // Also handle the exact basePath (e.g., /api/auth without trailing path)
+    expressApp.all(basePath, (req: Request, res: Response) => {
+      req.url = req.originalUrl;
+      return handler(req, res);
+    });
+
     this.logger.log(`AuthModule initialized BetterAuth on '${basePath}/*'`);
   }
 
